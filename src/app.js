@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import { body, validationResult } from "express-validator";
 import passport from 'passport';
 import { Strategy, ExtractJwt } from 'passport-jwt';
 import jwt from 'jsonwebtoken';
@@ -16,9 +15,6 @@ const {
   JWT_SECRET: jwtSecret,
   TOKEN_LIFETIME: tokenLifetime = 5000
 } = process.env;
-
-
-// const ssl = nodeEnv === 'production' ? { rejectUnauthorized: false } : false;
 
 if (!connectionString || !jwtSecret) {
   console.error('Vantar gögn í env');
@@ -67,7 +63,7 @@ app.get('/users/me', users.requireAuthentication, async(req, res) => {
 
   if(me) return res.status(201).json({name:me.name, username: me.username});
 
-  return res.status(400).json({error: "Enginn notandi skráður"});
+  return res.status(400).json({ error: "Enginn notandi skráður"});
 });
 
 app.get('/users/:id', users.requireAuthentication, async(req, res) => {
@@ -181,7 +177,7 @@ app.delete('/events/:id', users.requireAuthentication, async (req, res) => {
 
   if(eventId.userid === userId || isAdmin.isadmin){
     const del = await events.deleteEvent(id);
-    return res.status(200).json({del});
+      return res.status(200).json({"Message:": "Viðburð eytt"});
   }else{
     return res.status(400).json({error: "Ekki tókst að eyða viðburðinn"});
   }
@@ -219,7 +215,6 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
   console.error(err);
   const title = 'Villa kom upp';
-  // res.status(500).render('error', { title });
   return res.status(500).json({ error: title });
 });
 

@@ -151,9 +151,7 @@ export async function listRegistered(event) {
 
   const result = await query(q, [event]);
 
-  if (result) {
-    return result.rows;
-  }
+  if (result) return result.rows;
 
   return null;
 }
@@ -164,10 +162,11 @@ export async function deleteRegistration(id, userId) {
     DELETE FROM
       registrations
     WHERE
-      eventid = $1 and userid = $2
+      (eventid = $1 AND userid = $2)
 `;
   const values = [id, userId];
   const result = await query(q, values);
+    console.log(result);
   if (result && result.rowCount === 1) return true;
 
   return null;
