@@ -103,3 +103,5 @@ curl -X DELETE "http://localhost:3000/events/1/register" \
      -H "Authorization: Bearer $AUTH_TOKEN_USER" \
      -H "Content-Type: application/json" 
 ```
+## Keysla á Heroku
+https://sthb13-vef2-2022-v3.herokuapp.com/
