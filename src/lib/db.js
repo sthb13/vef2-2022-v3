@@ -56,3 +56,7 @@ export async function dropSchema(dropFile = DROP_SCHEMA_FILE) {
 
   return query(data.toString('utf-8'));
 }
+
+export async function end() {
+    await pool.end();
+}

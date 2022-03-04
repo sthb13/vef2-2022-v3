@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import passport from 'passport';
-import { query } from './events.js';
+import { query } from './db.js';
 
 export async function requireAuthentication(req, res, next) {
   return passport.authenticate(

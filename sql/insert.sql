@@ -11,4 +11,4 @@ INSERT INTO events (userid, name, slug, description, created, updated) VALUES
 (2, 'Hönnuðahittingur í mars', 'honnudahittingur-i-mars', 'Spennandi hittingur hönnuða í Hönnunarmars.', current_timestamp, current_timestamp);
 
 INSERT INTO registrations (userid, comment, eventid, created) VALUES
-(2, "Hlakka til", 1, current_timestamp);
+(2, 'Hlakka til', 1, current_timestamp);
