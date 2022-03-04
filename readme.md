@@ -41,7 +41,7 @@ curl -L -XPOST 'http://localhost:3000/users/register' \
 #### stjórnandi býr til viðburð
 ```bash
 curl -L -X POST "http://localhost:3000/events" \
-     -H "Authorization: Bearer $AUTH_TOKEN" \
+     -H "Authorization: Bearer $AUTH_TOKEN_ADMIN" \
      -H "Content-Type: application/json" \
-     --data '{"id": "1", "name": "Aðalfundur", "description": "Allir að mæta!"}' 
+     --data '{"id": "2", "name": "Aðalfundur", "description": "Allir að mæta!"}' 
 ```
