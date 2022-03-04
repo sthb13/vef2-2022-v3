@@ -17,6 +17,9 @@ const {
   TOKEN_LIFETIME: tokenLifetime = 5000
 } = process.env;
 
+
+// const ssl = nodeEnv === 'production' ? { rejectUnauthorized: false } : false;
+
 if (!connectionString || !jwtSecret) {
   console.error('Vantar gögn í env');
   process.exit(1);
